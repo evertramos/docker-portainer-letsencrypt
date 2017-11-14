@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  portainer:
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    image: portainer/portainer
+    volumes:
+      - ${PORTAINER_DATA_PATH}:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      VIRTUAL_HOST: ${DOMAINS}
+      LETSENCRYPT_HOST: ${DOMAINS}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+    command: --admin-password ${ENCRYPTED_PASSWORD}
+
+networks:
+    default:
+       external:
+         name: ${NETWORK}
