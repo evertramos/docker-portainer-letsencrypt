@@ -1,4 +1,4 @@
-version: '3'
+	version: '3'
 
 services:
   portainer:
@@ -7,11 +7,26 @@ services:
     image: portainer/portainer
     volumes:
       - ${PORTAINER_DATA_PATH}:/data
+      - ${PORTAINER_SSL_PATH}:/certs
       - /var/run/docker.sock:/var/run/docker.sock
+#    ports:
+#      - "9000:9000"
     environment:
       VIRTUAL_HOST: ${DOMAINS}
       LETSENCRYPT_HOST: ${DOMAINS}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+
+# ssl
+      SSL:
+      SSLCERT: ${PORTAINER_SSL_CERTIFICATE}
+      SSLKEY: ${PORTAINER_SSL_KEY}
+
+# Test of TLS certificate
+#      TLSVERIFY: 
+#      TLSCACERT: ${PORTAINER_SSL_CA_CERTIFICATE}
+#      TLSCERT: ${PORTAINER_SSL_CERTIFICATE}
+#      TLSKEY: ${PORTAINER_SSL_KEY}
+
 
 networks:
     default:
