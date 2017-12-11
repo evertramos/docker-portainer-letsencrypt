@@ -80,7 +80,8 @@ PORTAINER_SSL_KEY=/certs/$MAIN_DOMAIN.key
 #
 # Network name
 # 
-# The network name must be the same name of your webproxy (proxy container)
+# Your container app must use a network conencted to your webproxy 
+# https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
 #
 NETWORK=webproxy
 
@@ -100,6 +101,8 @@ Or you can simply start your compose enviornment:
 ```
 
 > If you run only `docker-compose up -d` you will be prompted to set your admin passowrd when accessing your browser.
+
+> This container must be in a network connected to your webproxy containers or use the same network of the webproxy.
 
 > Please keep in mind that when starting for the first time it may take a few moments (even a couple minutes) to get your Let's Encrypt certificates generated.
 
