@@ -4,13 +4,20 @@ services:
   portainer:
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
-    image: portainer/portainer
+    image: portainer/portainer-ce
     volumes:
-      - ${PORTAINER_DATA_PATH}:/data
+      - ./${CONTAINER_NAME}:/data
       - ${PORTAINER_SSL_PATH}:/certs
       - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "9000:9000"
+      - "8000:8000"
+    expose:
+      - "9000"
+      - "8000"
     environment:
       VIRTUAL_HOST: ${DOMAINS}
+      VIRTUAL_PORT: 9000
       LETSENCRYPT_HOST: ${DOMAINS}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
       SSL:
