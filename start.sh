@@ -45,8 +45,8 @@ sed -i '' -e '/ENCRYPTED_PASSWORD/d' ./.env
 echo "ENCRYPTED_PASSWORD='$ENCRYPTED_PASSWORD'" >> .env
 
 # 3. Start Portainer container
-DOCKER_COMPOSE_ARGS="-f docker-compose-with-password.yml up -d"
-[[ $# -ne 0 ]] && DOCKER_COMPOSE_ARGS="$@"
+DOCKER_COMPOSE_ARGS="-f docker-compose.yml up"
+[[ "$@" == "prod" ]] && DOCKER_COMPOSE_ARGS+=" -d"
 
 docker-compose $DOCKER_COMPOSE_ARGS
 
