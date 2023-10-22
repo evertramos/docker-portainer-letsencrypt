@@ -4,12 +4,12 @@ Spin up a [Portainer&reg;](https://portainer.io) instance with a managed SSL cer
 
 ![Portainer Enviornment](https://github.com/evertramos/images/blob/master/portainer.jpg)
 
-# Prerequisites
+## Prerequisites
 
 1. docker [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 2. docker-compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
-# How to use
+## Quick-start
 
 1. Clone this repository:
 
@@ -17,15 +17,36 @@ Spin up a [Portainer&reg;](https://portainer.io) instance with a managed SSL cer
 git clone https://github.com/evertramos/docker-portainer-letsencrypt.git
 ```
 
-2. Make a copy of our .env.sample and rename it to .env:
+2. Create env file:
 
-3. Start your container
+```sh
+cp .env.sample .env
+```
 
-You can run our script, and it will use your predefined password:
+3. Spin up the container
 
 ```sh
 ./start.sh
 ```
+
+## Usage
+
+- Run container instance in the background:
+
+```sh
+./start.sh prod
+```
+
+- Stop the container instance:
+
+> [!NOTE]
+> If you're running it in the foreground, just `CTRL+C` will suffice
+
+```sh
+./stop.sh
+```
+
+## Disclaimers
 
 > [!NOTE]
 > Keep in mind that when starting for the first time it may take a few moments (even a couple minutes) to get your Let's Encrypt certificates generated.
