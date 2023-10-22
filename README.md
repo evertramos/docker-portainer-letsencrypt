@@ -1,6 +1,6 @@
 # Docker Portainer running with auto generate/renew Let's Encrypt Certificate
 
-With this repo you will be able to set up the fantastic [Portainer](https://portainer.io) as a container over SSL auto generated and auto renewed by our Web Proxy.
+Spin up a [Portainer&reg;](https://portainer.io) instance with a managed SSL certificate with two commands.
 
 ![Portainer Enviornment](https://github.com/evertramos/images/blob/master/portainer.jpg)
 
