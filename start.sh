@@ -39,7 +39,7 @@ fi
 ENCRYPTED_PASSWORD=$(docker run --rm httpd:2.4-alpine htpasswd -nbB admin $ADMIN_PASSWORD | cut -d ":" -f 2)
 
 #   2.4 Delete old ENCRYPTED_PASSWORD
-sed -i '/ENCRYPTED_PASSWORD/d' ./.env
+sed -i '' -e '/ENCRYPTED_PASSWORD/d' ./.env
 
 #   2.4 Send passowrd to .env file
 echo "ENCRYPTED_PASSWORD=$ENCRYPTED_PASSWORD" >> .env
