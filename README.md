@@ -6,8 +6,6 @@ With this repo you will be able to set up the fantastic [Portainer](https://port
 
 # Prerequisites
 
-In order to use this compose file (docker-compose.yml) you must have:
-
 1. docker [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 2. docker-compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
@@ -29,4 +27,5 @@ You can run our script, and it will use your predefined password:
 ./start.sh
 ```
 
-> Please keep in mind that when starting for the first time it may take a few moments (even a couple minutes) to get your Let's Encrypt certificates generated.
+> [!NOTE]
+> Keep in mind that when starting for the first time it may take a few moments (even a couple minutes) to get your Let's Encrypt certificates generated.
