@@ -10,7 +10,7 @@ services:
       - ${PORTAINER_SSL_PATH}:/certs
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - $PORT_HOST:PORT_CONTAINER
+      - $PORT_HOST:$PORT_CONTAINER
     environment:
       VIRTUAL_HOST: ${DOMAINS}
       LETSENCRYPT_HOST: ${DOMAINS}
@@ -18,6 +18,7 @@ services:
       SSL:
       SSLCERT: ${PORTAINER_SSL_CERTIFICATE}
       SSLKEY: ${PORTAINER_SSL_KEY}
+    command: --admin-password ${ENCRYPTED_PASSWORD}
 
 networks:
   portainer_network:
