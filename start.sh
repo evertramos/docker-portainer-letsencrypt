@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #
-# Script to start your Portainer 
+# Script to start your Portainer
 #
 # Uses the admin password specified in the .env file
 
 # 1. Check if .env file exists
 if [ -e .env ]; then
     source .env
-else 
+else
     echo "Please set up your .env file before starting your enviornment."
     exit 1
 fi
@@ -23,7 +23,7 @@ fi
 
 #   2.2 Check if passowrd was the same as sample file
 if [ $ADMIN_PASSWORD = "your_admin_password" ]; then
-    echo 
+    echo
     echo "#-----------------------------------------------------------"
     echo "#"
     echo "# CAREFUL!"
@@ -42,13 +42,16 @@ ENCRYPTED_PASSWORD=$(docker run --rm httpd:2.4-alpine htpasswd -nbB admin $ADMIN
 sed -i '' -e '/ENCRYPTED_PASSWORD/d' ./.env
 
 #   2.4 Send passowrd to .env file
-echo "ENCRYPTED_PASSWORD='$ENCRYPTED_PASSWORD'" >> .env
+echo "ENCRYPTED_PASSWORD='$ENCRYPTED_PASSWORD'" >>.env
 
 # 3. Start Portainer container
-docker-compose -f docker-compose-with-password.yml up -d
+DOCKER_COMPOSE_ARGS="-f docker-compose.yml up"
+[[ "$@" == "prod" ]] && DOCKER_COMPOSE_ARGS+=" -d"
+
+docker-compose $DOCKER_COMPOSE_ARGS
 
 # Final message
-echo 
+echo
 echo "#-----------------------------------------------------------"
 echo "#"
 echo "# The WebProxy take a few moments to get the SSL Certificates"
@@ -59,6 +62,5 @@ echo "# $DOMAINS"
 echo "#"
 echo "#-----------------------------------------------------------"
 echo
-
 
 exit 0

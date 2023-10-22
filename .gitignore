@@ -1,2 +1,5 @@
 .env
 create_network.sh
+
+data/
+certs/
