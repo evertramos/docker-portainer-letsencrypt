@@ -2,7 +2,7 @@
 
 With this repo you will be able to set up the fantastic [Portainer](https://portainer.io) as a container over SSL auto generated and auto renewed by our Web Proxy.
 
-![Portainer Enviornment](https://github.com/evertramos/images/blob/master/portainer.jpg)
+![Portainer Environment](https://github.com/evertramos/images/blob/master/portainer.jpg)
 
 # Prerequisites
 
@@ -31,7 +31,7 @@ Update this file with your preferences.
 # Portainer configured to work along with our Web Proxy
 # https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
 #
-# This is the .env file to set up your portainer enviornment
+# This is the .env file to set up your portainer environment
 
 #
 # Container name for your Portainer
@@ -95,12 +95,12 @@ You can run our script, and it will use your predefined password:
 # ./start.sh
 ```
 
-Or you can simply start your compose enviornment:
+Or you can simply start your compose environment:
 ```bash
 # docker-compose up -d
 ```
 
-> If you run only `docker-compose up -d` you will be prompted to set your admin passowrd when accessing your browser.
+> If you run only `docker-compose up -d` you will be prompted to set your admin password when accessing your browser.
 
 > This container must be in a network connected to your webproxy containers or use the same network of the webproxy.
 
