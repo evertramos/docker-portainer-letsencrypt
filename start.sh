@@ -47,7 +47,7 @@ else
 fi
 
 #   2.4 Send passowrd to .env file
-echo "ENCRYPTED_PASSWORD=$ENCRYPTED_PASSWORD" >> .env
+echo "ENCRYPTED_PASSWORD='$ENCRYPTED_PASSWORD'" >> .env
 
 # 3. Start Portainer container
 docker-compose -f docker-compose-with-password.yml up -d
