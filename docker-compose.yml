@@ -4,7 +4,7 @@ services:
   portainer:
     container_name: ${CONTAINER_NAME:-portainer}
     restart: unless-stopped
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:$PORTAINER_IMAGE_TAG
     volumes:
       - ${PORTAINER_DATA_PATH:-./data}:/data
       - ${PORTAINER_SSL_PATH:-./certs}:/certs
