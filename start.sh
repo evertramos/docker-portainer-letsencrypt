@@ -28,7 +28,7 @@ is_env_vars_defined() {
 
 generate_encrypted_password() {
     ENCRYPTED_PASSWORD=$(docker run --rm httpd:$APACHE_WEB_SERVER_HTTPD_TAG htpasswd -nbB admin $ADMIN_PASSWORD | cut -d ":" -f 2)
-    sed -i '' -e '/ENCRYPTED_PASSWORD/d' ./.env
+    sed -i'' -e '/ENCRYPTED_PASSWORD/d' ./.env
     echo "ENCRYPTED_PASSWORD='$ENCRYPTED_PASSWORD'" >>.env
 }
 
