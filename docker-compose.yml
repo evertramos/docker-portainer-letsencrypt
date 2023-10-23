@@ -19,6 +19,5 @@ services:
       SSLKEY: ${PORTAINER_SSL_KEY}
 
 networks:
-    default:
-       external:
-         name: ${NETWORK}
+  portainer_network:
+    name: ${NETWORK}
