@@ -6,8 +6,8 @@
 
 is_env_file_exists() {
     if [ ! -e .env ]; then
-        echo "ERROR: No .env file found"
-        exit 1
+        cp .env.sample .env
+        echo "WARNING: No .env file found. One was created from .env.sample"
     fi
 }
 
@@ -22,7 +22,7 @@ is_env_vars_defined() {
     source "$PATH_TO_ENV_FILE"
 
     if [ $ADMIN_PASSWORD = "your_admin_password" ]; then
-        echo "WARNING: You're using the same admin password as our sample. Consider changing it."
+        echo "WARNING: You're using the same admin password as our sample. Consider changing it in production."
     fi
 }
 
