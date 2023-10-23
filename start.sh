@@ -35,7 +35,7 @@ generate_encrypted_password() {
 run_docker_compose() {
     DOCKER_COMPOSE_ARGS="-f docker-compose.yml up"
     [[ $1 == "prod" ]] && DOCKER_COMPOSE_ARGS+=" -d"
-    docker-compose $DOCKER_COMPOSE_ARGS
+    docker compose $DOCKER_COMPOSE_ARGS
 }
 
 script_entrypoint() {
