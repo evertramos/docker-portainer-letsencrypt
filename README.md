@@ -17,13 +17,10 @@ Spin up a [Portainer&reg;](https://portainer.io) instance with a managed SSL cer
 git clone https://github.com/evertramos/docker-portainer-letsencrypt.git
 ```
 
-2. Create an env file and fill it in:
+2. Run the start script and type "localhost" into your browser
 
-```sh
-cp .env.sample .env
-```
-
-3. Spin up the container and type "localhost" into your browser
+> [!NOTE]
+> You might need to give the following script execute permission: `chmod +x ./start.sh`
 
 ```sh
 ./start.sh
@@ -31,16 +28,16 @@ cp .env.sample .env
 
 ## Usage
 
-- Run container instance in the background:
+- To run it in the background, pass "prod" argument to the start script:
 
 ```sh
 ./start.sh prod
 ```
 
-- Stop the container instance:
+- To stop the container instance, run the stop script:
 
 > [!NOTE]
-> If you're running it in the foreground, just `CTRL+C` will suffice
+> If you're running it in the foreground as demonstrated in the quick-start, just `CTRL+C` will suffice
 
 ```sh
 ./stop.sh
