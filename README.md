@@ -17,13 +17,13 @@ Spin up a [Portainer&reg;](https://portainer.io) instance with a managed SSL cer
 git clone https://github.com/evertramos/docker-portainer-letsencrypt.git
 ```
 
-2. Create env file:
+2. Create an env file and fill it in:
 
 ```sh
 cp .env.sample .env
 ```
 
-3. Spin up the container
+3. Spin up the container and type "localhost" into your browser
 
 ```sh
 ./start.sh
